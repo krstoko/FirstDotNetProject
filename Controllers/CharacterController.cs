@@ -22,9 +22,20 @@ namespace FirstDotNetProject.Controllers
 
         [HttpGet("{id}")]
 
+
+
         public ActionResult<Character> GetSingle(int id)
         {
             return Ok(characters.FirstOrDefault(c => c.Id == id));
+        }
+
+
+        [HttpPost]
+
+        public ActionResult<List<Character>> addCharacter(Character newCharacter)
+        {
+            characters.Add(newCharacter);
+            return Ok(characters);
         }
     }
 }
