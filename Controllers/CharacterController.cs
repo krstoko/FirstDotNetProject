@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using FirstDotNetProject.Models;
 using System.Collections.Generic;
-using System.Linq;
 using FirstDotNetProject.Services.CharacterService;
 using System.Threading.Tasks;
 
@@ -23,7 +22,7 @@ namespace FirstDotNetProject.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<Character>> Get()
+        public async Task<ActionResult<ServiceResponse<Character>>> Get()
         {
             return Ok(await _characterService.GetAllCharacters());
         }
@@ -32,7 +31,7 @@ namespace FirstDotNetProject.Controllers
 
 
 
-        public async Task<ActionResult<Character>> GetSingle(int id)
+        public async Task<ActionResult<ServiceResponse<Character>>> GetSingle(int id)
         {
             return Ok(await _characterService.GetCharacterById(id));
         }
@@ -40,7 +39,7 @@ namespace FirstDotNetProject.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult<List<Character>>> addCharacter(Character newCharacter)
+        public async Task<ActionResult<ServiceResponse<List<Character>>>> addCharacter(Character newCharacter)
         {
             characters.Add(newCharacter);
             return Ok(await _characterService.AddCharacter(newCharacter));
