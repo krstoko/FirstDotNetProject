@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using FirstDotNetProject.Services.CharacterService;
 using System.Threading.Tasks;
 using FirstDotNetProject.Dtos.Character;
+using Microsoft.AspNetCore.Authorization;
+using System.Linq;
+using System.Security.Claims;
 
 namespace FirstDotNetProject.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CharacterController : ControllerBase
@@ -25,7 +29,8 @@ namespace FirstDotNetProject.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> Get()
         {
-            return Ok(await _characterService.GetAllCharacters());
+            int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+            return Ok(await _characterService.GetAllCharacters(id));
         }
 
         [HttpGet("{id}")]

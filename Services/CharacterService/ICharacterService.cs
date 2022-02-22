@@ -7,7 +7,7 @@ namespace FirstDotNetProject.Services.CharacterService
 {
     public interface ICharacterService
     {
-        Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters();
+        Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int id);
         Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id);
 
         Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter);
