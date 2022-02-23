@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace FirstDotNetProject.Models
 {
     public class Character
@@ -17,5 +19,7 @@ namespace FirstDotNetProject.Models
         public User User { get; set; }
 
         public Weapon Weapon { get; set; }
+
+        public List<Skill> Skills { get; set; }
     }
 }

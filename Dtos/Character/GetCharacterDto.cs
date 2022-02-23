@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FirstDotNetProject.Dtos.Skill;
 using FirstDotNetProject.Dtos.Weapon;
 using FirstDotNetProject.Models;
 
@@ -23,5 +24,7 @@ namespace FirstDotNetProject.Dtos.Character
         public RpgClass Class { get; set; } = RpgClass.Knight;
 
         public GetWeaponDto Weapon { get; set; }
+
+        public List<GetSkillDto> Skills { get; set; }
     }
 }
