@@ -19,6 +19,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Http;
 using FirstDotNetProject.Services.WeaponService;
+using FirstDotNetProject.Services.FightService;
 
 namespace FirstDotNetProject
 {
@@ -54,6 +55,7 @@ namespace FirstDotNetProject
             services.AddScoped<ICharacterService, CharacterService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IWeaponService, WeaponService>();
+            services.AddScoped<IFightService, FightService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {

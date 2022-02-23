@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using FirstDotNetProject.Dtos.Character;
+using FirstDotNetProject.Dtos.Fight;
 using FirstDotNetProject.Dtos.Skill;
 using FirstDotNetProject.Dtos.Weapon;
 using FirstDotNetProject.Models;
@@ -18,6 +19,7 @@ namespace FirstDotNetProject
             CreateMap<AddCharacterDto, Character>();
             CreateMap<Weapon, GetWeaponDto>();
             CreateMap<Skill, GetSkillDto>();
+            CreateMap<Character, HighScoreDto>();
         }
     }
 }
